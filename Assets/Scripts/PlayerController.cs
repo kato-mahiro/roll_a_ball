@@ -22,4 +22,16 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(movement * speed);
     }
+
+    
+    void OnTriggerEnter(Collider other)
+    //OnTriggerENter関数はPlayerゲームオブジェクトがTrigger担っているColliderに接触した瞬間に呼ばれる
+    {
+        if(other.gameObject.CompareTag("PickUp"))
+        {
+            other.gameObject.SetActive(false);
+            Debug.Log("衝突した");
+        }
+    }
+    
 }
